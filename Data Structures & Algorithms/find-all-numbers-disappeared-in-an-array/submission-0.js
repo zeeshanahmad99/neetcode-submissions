@@ -1,0 +1,24 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @return {number[]}
+     */
+    findDisappearedNumbers(nums) {
+        for(let i=0; i<nums.length; i++) {
+            const index = Math.abs(nums[i]) - 1
+
+            if(nums[index] > 0) nums[index] *= -1
+        }
+
+        const result = []
+
+        for(let i=0; i<nums.length; i++) {
+            const val = nums[i]
+
+            if(val > 0) result.push(i+1)
+        }
+
+        return result
+    }
+}
+
